@@ -1,0 +1,132 @@
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 9.1.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE DATABASE school_management;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> USE school_management;
+Database changed
+mysql> CREATE TABLE classe (
+    ->     id_classe INT AUTO_INCREMENT PRIMARY KEY,
+    ->     nom_classe VARCHAR(50),
+    ->     niveau INT
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> CREATE TABLE eleve (
+    ->     id_eleve INT AUTO_INCREMENT PRIMARY KEY,
+    ->     nom VARCHAR(50),
+    ->     prenom VARCHAR(50),
+    ->     email VARCHAR(100) UNIQUE,
+    ->     mot_de_passe VARCHAR(255),
+    ->     date_naissance DATE,
+    ->     sexe VARCHAR(10),
+    ->     id_classe INT,
+    ->     FOREIGN KEY (id_classe) REFERENCES classe(id_classe)
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> CREATE TABLE enseignant (
+    ->     id_enseignant INT AUTO_INCREMENT PRIMARY KEY,
+    ->     nom VARCHAR(50),
+    ->     prenom VARCHAR(50),
+    ->     email VARCHAR(100) UNIQUE,
+    ->     mot_de_passe VARCHAR(255),
+    ->     specialite VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> CREATE TABLE matiere (
+    ->     id_matiere INT AUTO_INCREMENT PRIMARY KEY,
+    ->     nom_matiere VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> CREATE TABLE note (
+    ->     id_note INT AUTO_INCREMENT PRIMARY KEY,
+    ->     id_eleve INT,
+    ->     id_matiere INT,
+    ->     id_enseignant INT,
+    ->     note DECIMAL(5,2),
+    ->     date DATE,
+    ->     FOREIGN KEY (id_eleve) REFERENCES eleve(id_eleve),
+    ->     FOREIGN KEY (id_matiere) REFERENCES matiere(id_matiere),
+    ->     FOREIGN KEY (id_enseignant) REFERENCES enseignant(id_enseignant)
+    -> );
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> CREATE TABLE emploi_du_temps (
+    ->     id_edt INT AUTO_INCREMENT PRIMARY KEY,
+    ->     jour VARCHAR(20),
+    ->     heure_debut TIME,
+    ->     heure_fin TIME,
+    ->     id_classe INT,
+    ->     id_matiere INT,
+    ->     id_enseignant INT,
+    ->     FOREIGN KEY (id_classe) REFERENCES classe(id_classe),
+    ->     FOREIGN KEY (id_matiere) REFERENCES matiere(id_matiere),
+    ->     FOREIGN KEY (id_enseignant) REFERENCES enseignant(id_enseignant)
+    -> );
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SHOW TABLES;
++-----------------------------+
+| Tables_in_school_management |
++-----------------------------+
+| classe                      |
+| eleve                       |
+| emploi_du_temps             |
+| enseignant                  |
+| matiere                     |
+| note                        |
++-----------------------------+
+6 rows in set (0.01 sec)
+
+mysql> +-----------------------------+
+    -> | Tables_in_school_management |
+    -> +-----------------------------+
+    -> | classe                      |
+    -> | eleve                       |
+    -> | emploi_du_temps             |
+    -> | enseignant                  |
+    -> | matiere                     |
+    -> | note                        |
+    -> +-----------------------------+
+    -> DESCRIBE eleve^C
+mysql> DESCRIBE eleve;
++----------------+--------------+------+-----+---------+----------------+
+| Field          | Type         | Null | Key | Default | Extra          |
++----------------+--------------+------+-----+---------+----------------+
+| id_eleve       | int          | NO   | PRI | NULL    | auto_increment |
+| nom            | varchar(50)  | YES  |     | NULL    |                |
+| prenom         | varchar(50)  | YES  |     | NULL    |                |
+| email          | varchar(100) | YES  | UNI | NULL    |                |
+| mot_de_passe   | varchar(255) | YES  |     | NULL    |                |
+| date_naissance | date         | YES  |     | NULL    |                |
+| sexe           | varchar(10)  | YES  |     | NULL    |                |
+| id_classe      | int          | YES  | MUL | NULL    |                |
++----------------+--------------+------+-----+---------+----------------+
+8 rows in set (0.00 sec)
+
+mysql> DESCRIBE enseignant;
++---------------+--------------+------+-----+---------+----------------+
+| Field         | Type         | Null | Key | Default | Extra          |
++---------------+--------------+------+-----+---------+----------------+
+| id_enseignant | int          | NO   | PRI | NULL    | auto_increment |
+| nom           | varchar(50)  | YES  |     | NULL    |                |
+| prenom        | varchar(50)  | YES  |     | NULL    |                |
+| email         | varchar(100) | YES  | UNI | NULL    |                |
+| mot_de_passe  | varchar(255) | YES  |     | NULL    |                |
+| specialite    | varchar(100) | YES  |     | NULL    |                |
++---------------+--------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
