@@ -1,0 +1,87 @@
+1. Présentation du projet
+Nom du projet : EduGestion
+Objectif :
+Créer une application web complète pour la gestion administrative et pédagogique d’un établissement scolaire.
+Contexte :
+De nombreuses écoles utilisent encore des outils manuels ou dispersés (Excel, papier) pour gérer leurs élèves, enseignants, notes et plannings. Ce projet vise à centraliser toutes ces fonctionnalités dans une seule plateforme web.
+Problématique :
+Comment améliorer l’organisation scolaire et simplifier la gestion quotidienne grâce à une plateforme web intuitive et sécurisée ?
+________________________________________
+2. Description des besoins
+Fonctionnalités attendues :
+•	Création et gestion de comptes (élèves, enseignants, admin)
+•	Connexion sécurisée avec rôles
+•	Gestion des classes, matières, et emplois du temps
+•	Ajout et consultation des notes
+•	Statistiques sur les performances
+•	Export PDF ( emplois du temps)
+•	Notifications ou messagerie interne
+Acteurs du système :
+•	Administrateur
+•	Enseignant
+•	Élève
+________________________________________
+3. Spécifications fonctionnelles
+Scénarios utilisateurs :
+Administrateur :
+•	Crée des comptes utilisateurs
+•	Ajoute/modifie des classes, matières, horaires
+•	Gère les affectations enseignants/matières
+Enseignant :
+•	Saisie des notes
+•	Accès à ses classes et matières
+•	Visualisation des performances des élèves
+Élève :
+•	Connexion à son espace
+•	Consultation des notes, emploi du temps
+•	Téléchargement du bulletin
+________________________________________
+4. Spécifications techniques
+Technologies envisagées :
+•	Frontend :
+o	HTML5, CSS3, JavaScript (avec Bootstrap comme framework)
+•	Backend :
+o	PHP 
+o	JavaScript 
+•	Base de données :
+o	MySQL 
+•	Hébergement :
+o	Serveur Apache 
+•	Sécurité :
+o	Sessions PHP sécurisées
+o	Validation côté client (JS) et serveur (PHP)
+o	Hachage des mots de passe (ex : password_hash() en PHP)
+________________________________________
+5. Contraintes
+•	Délai : 6 mois
+•	Contraintes techniques :
+o	Design responsive (adapté aux écrans mobiles et PC)
+o	Accessibilité (texte lisible, navigation claire)
+o	données personnelles bien protégées
+________________________________________
+6. Maquettes et UX/UI
+•	Interface intuitive, facile d’utilisation pour tous les rôles
+•	Navigation principale par menu vertical ou onglets
+•	Code couleur pour différencier les rôles (admin, prof, élève)
+•	Maquettes créées sous Figma 
+________________________________________
+7. Livrables attendus
+•	Code source complet (HTML, CSS, JS, PHP)
+•	Base de données SQL prête à importer
+•	Documentation technique (PDF + fichier README)
+•	Manuel utilisateur simple pour chaque rôle
+
+
+________________________________________
+8. Annexes
+•	Glossaire :
+o	Classe : groupe d’élèves assigné à un niveau
+o	Bulletin : fiche des notes finales d’un élève
+•	Références :
+o	https://www.github.com
+o	https://developer.mozilla.org/fr/
+•	Inspirations :
+o	Massar
+o	Google Classroom 
+________________________________________
+
