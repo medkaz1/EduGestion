@@ -9,6 +9,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
+    @media (max-width: 767px) {
+  .logo-container-left img {
+    height: 40px;
+    max-width: 140px;
+  }
+}
+
+    /* General Reset and Body Styling */
     *, *::before, *::after {
       box-sizing: border-box;
     }
@@ -24,17 +32,16 @@
 
     body {
       display: flex;
-      align-items: stretch;
       justify-content: center;
-      
+      align-items: stretch;
     }
 
     main {
       display: grid;
       grid-template-columns: 1fr 1fr;
       width: 100%;
-      max-width: 100%;
       height: 100vh;
+      max-width: 100%;
     }
 
     @media (max-width: 767px) {
@@ -44,40 +51,37 @@
       }
     }
 
+    /* Left Panel */
     .left-panel {
-  position: relative;
-  background:
-    linear-gradient(to top, #2563eb 0%, transparent 100%) 0 100% / 100% 50% no-repeat,
-    url(blog-20-student-engagement-strategies-captivating-classroom.webp) center center / cover no-repeat;
-  color: #f9fafb;
-  padding: 48px 32px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  text-align: center;
-  gap: 48px;
-}
+      position: relative;
+      background:
+        linear-gradient(to top, #2563eb 0%, transparent 100%) 0 100% / 100% 50% no-repeat,
+        url(blog-20-student-engagement-strategies-captivating-classroom.webp) center center / cover no-repeat;
+      color: #f9fafb;
+      padding: 48px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      text-align: center;
+      gap: 48px;
+    }
 
+    .left-panel::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(37, 99, 235, 0.9), rgba(37, 99, 235, 0));
+      z-index: 0;
+    }
 
-
-.left-panel::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 40%; /* You can tweak this */
-  background: linear-gradient(to top, rgba(37, 99, 235, 0.9), rgba(37, 99, 235, 0)); /* Fade */
-  z-index: 0;
-}
-
-.left-panel > * {
-  position: relative;
-  z-index: 1;
-}
-
-
+    .left-panel > * {
+      position: relative;
+      z-index: 1;
+    }
 
     .left-panel h2 {
       font-weight: 700;
@@ -87,13 +91,7 @@
       max-width: 400px;
     }
 
-    .left-panel p.subtitle {
-      font-size: 1rem;
-      color: #bfdbfe;
-      margin: 0;
-      max-width: 380px;
-    }
-
+    /* Right Panel */
     .right-panel {
       background-color: #ffffff;
       padding: 48px;
@@ -110,30 +108,28 @@
       }
     }
 
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-  .logo-container-left {
+    /* Logo Containers */
+    .logo-container-left {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: -25px;
+  left: 2px;
+  z-index: 10;
   display: flex;
   align-items: center;
-  gap: 8px;
-  z-index: 1;
 }
 
 .logo-container-left img {
-  width: 40px; /* or 32px for even smaller */
   height: auto;
+  max-height: auto;      /* Bigger height */
+  width: 500px;
+  max-width: 150px;      /* Controls width scaling */
+  object-fit: contain;
+  opacity: 1;
 }
 
+
+
     .logo-text {
-        display: flex;
-      align-items: center;
       font-weight: 700;
       font-size: 1.75rem;
       color: #111827;
@@ -147,6 +143,7 @@
       color: #2563eb;
     }
 
+    /* Form Styles */
     form {
       display: flex;
       flex-direction: column;
@@ -169,6 +166,8 @@
       border-radius: 8px;
       transition: border-color 0.3s ease;
       width: 100%;
+      appearance: none;
+      background-color: #fff;
     }
 
     input:focus,
@@ -176,6 +175,10 @@
       border-color: #2563eb;
       outline: none;
       box-shadow: 0 0 8px rgb(37 99 235 / 0.4);
+    }
+
+    select {
+      color: #111827;
     }
 
     button.sign-in {
@@ -213,68 +216,69 @@
       font-weight: 600;
       color: #2563eb;
     }
-    .left-logo {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 250px; /* Minimal size */
-  height: auto;
-  z-index: 2;
-  opacity: 0.9; /* Optional subtle touch */
-}
-.signin-heading {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #111827;
-  
-  margin-bottom: 32px;
-}
-.signin-header {
-  text-align: left;
-  margin-bottom: 32px;
+
+    .signin-header {
+      text-align: left;
+      margin-bottom: 32px;
+    }
+
+    .signin-heading {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #111827;
+      margin: 0;
+    }
+
+    .signin-subtitle {
+      font-size: 0.875rem;
+      color: #6b7280;
+      margin-top: 8px;
+    }
+    .role-choices {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 10px;
 }
 
-.signin-heading {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #111827;
-  margin: 0;
+.role-option {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+  font-weight: 600;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+  background-color: #f9fafb;
 }
 
-.signin-subtitle {
-  font-size: 0.875rem;
-  color: #6b7280;
-  margin-top: 8px;
+.role-option:hover {
+  border-color: #2563eb;
 }
 
+.role-option.selected {
+  background-color: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
 
   </style>
 </head>
 <body>
   <main>
     <section class="left-panel">
-        <div class="logo-container-left">
-        <svg viewBox="0 0 64 64" width="48" height="48">
-          <path fill="#475569" d="M4 26L32 6l28 20-28 20L4 26z" />
-          <path fill="#64748b" d="M32 34l28-20v32L32 54V34z" />
-          <path fill="#475569" d="M22 40h20v6H22v-6z" />
-        </svg>
-        <div>
-          <div class="logo-text">Edu<strong>Gestion</strong></div>
-          <div class="logo-subtitle">Education Management System</div>
-        </div>
-        </div>
+      <div class="logo-container-left">
+  <img src="EduGestion-removebg-preview.png" alt="EduGestion Logo">
+</div>
       <h2>Stay close to your school, wherever you are</h2>
-      
     </section>
 
     <section class="right-panel">
-      
-        <div class="signin-header">
-  <h1 class="signin-heading">Sign In</h1>
-  <p class="signin-subtitle">Enter your email and password to login to your dashboard</p>
-</div>
-
+      <div class="signin-header">
+        <h1 class="signin-heading">Sign In</h1>
+        <p class="signin-subtitle">Enter your email and password to login to your dashboard</p>
+      </div>
 
       <form action="#" method="post">
         <label for="email">Email</label>
@@ -283,12 +287,14 @@
         <label for="password">Password</label>
         <input id="password" type="password" name="password" placeholder="Enter your password" required />
 
+        
         <label for="role">Register as</label>
-        <select id="role" name="role" required>
-          <option value="">Select Role</option>
-          <option value="student">Student</option>
-          <option value="teacher">Teacher</option>
-        </select>
+<div class="role-choices">
+  <input type="hidden" name="role" id="role" required />
+  <div class="role-option" data-value="student">🎓 Student</div>
+  <div class="role-option" data-value="teacher">👨‍🏫 Teacher</div>
+</div>
+
 
         <button type="submit" class="sign-in">Sign in</button>
 
@@ -303,5 +309,18 @@
       </p>
     </section>
   </main>
+  <script>
+  const roleOptions = document.querySelectorAll('.role-option');
+  const roleInput = document.getElementById('role');
+
+  roleOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      roleOptions.forEach(opt => opt.classList.remove('selected'));
+      option.classList.add('selected');
+      roleInput.value = option.dataset.value;
+    });
+  });
+</script>
+
 </body>
 </html>
