@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduGestion - Student Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #f3f4f6;
+      color: #111827;
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 240px;
+      background-color: #2563eb;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      padding: 32px 16px;
+    }
+
+    .sidebar h2 {
+      font-size: 1.5rem;
+      margin-bottom: 32px;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-weight: 600;
+      display: block;
+      transition: background-color 0.3s ease;
+    }
+
+    .sidebar a:hover {
+      background-color: #1e40af;
+    }
+
+    .main {
+      flex: 1;
+      padding: 32px;
+      overflow-y: auto;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      margin-bottom: 24px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.25rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #e5e7eb;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f9fafb;
+    }
+
+    @media (max-width: 767px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+
+      .sidebar a {
+        flex: 1;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="sidebar">
+    <h2>🎓 Student</h2>
+    <a href="#notes">📘 My Grades</a>
+    <a href="#schedule">🕒 Timetable</a>
+    <a href="#bulletin">📄 My Bulletin</a>
+    <a href="#logout">🚪 Logout</a>
+  </nav>
+
+  <main class="main">
+    <section class="card" id="notes">
+      <h3>My Grades</h3>
+      <table>
+        <thead>
+          <tr><th>Subject</th><th>Grade</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Math</td><td>16.5</td></tr>
+          <tr><td>Science</td><td>15.0</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card" id="schedule">
+      <h3>Timetable</h3>
+      <table>
+        <thead>
+          <tr><th>Day</th><th>Time</th><th>Subject</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Monday</td><td>08:00 - 09:00</td><td>Math</td></tr>
+          <tr><td>Monday</td><td>09:00 - 10:00</td><td>History</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card" id="bulletin">
+      <h3>My Bulletin</h3>
+      <p>You can download your bulletin below:</p>
+      <a href="bulletin.pdf" download style="color: #2563eb; font-weight: 600;">📥 Download Bulletin (PDF)</a>
+    </section>
+  </main>
+</body>
+</html>
